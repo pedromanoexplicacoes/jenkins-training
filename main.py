@@ -1,4 +1,4 @@
-import sys 
+from sys import exit
 from junit_xml import TestSuite, TestCase
 
 
