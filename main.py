@@ -5,7 +5,7 @@ from junit_xml import TestSuite, TestCase
 
 def runTests_failures():
     test_cases = [
-        TestCase('Test1', 'funcional', 123.345, 'Output do teste', 'Falhou falhou!!!!!', False),
+        TestCase('Test1', 'funcional', 123.345, 'Output do teste', 'Falhou falhou!!!!!',status=False),
         TestCase('Test2', 'funcional', 33.24, 'Output 2', None, True),
         TestCase('Test1', 'Integracao', 5, 'Ok Integracao', None, True),
         ]
