@@ -5,10 +5,12 @@ from junit_xml import TestSuite, TestCase
 
 def runTests_failures():
     test_cases = [
-        TestCase('Test1', 'funcional', 123.345, 'Output do teste', 'Falhou falhou!!!!!',status=False),
+        TestCase('Test1', 'funcional', 123.345, 'Output do teste', 'Falhou falhou!!!!!',True),
         TestCase('Test2', 'funcional', 33.24, 'Output 2', None, True),
         TestCase('Test1', 'Integracao', 5, 'Ok Integracao', None, True),
         ]
+    test_cases[0].add_error_info('Error no test1 funcional!!')
+
     ts = TestSuite("Test Suite", test_cases)
     with open('output.xml', 'w') as f:
         TestSuite.to_file(f, [ts], prettyprint=False)
