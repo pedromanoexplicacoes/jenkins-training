@@ -1,10 +1,15 @@
 from sys import exit
+import sys
 from junit_xml import TestSuite, TestCase
 
 
 def runTests():
-    test_cases = [TestCase('Test1', 'some.class.name', 123.345, 'I am stdout!', 'I am stderr!')]
-    ts = TestSuite("my test suite", test_cases)
+    test_cases = [
+        TestCase('Test1', 'funcional', 123.345, 'Output do teste', None, True),
+        TestCase('Test2', 'funcional', 33.24, 'Output 2', None, True),
+        TestCase('Test1', 'Integracao', 5, 'Ok Integracao', None, True),
+        ]
+    ts = TestSuite("Test Suite", test_cases)
     with open('output.xml', 'w') as f:
         TestSuite.to_file(f, [ts], prettyprint=False)
 
