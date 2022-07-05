@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+  stages {
+    stage('Stage 1: Compilar projecto') {
+      steps {
+          echo 'Stage 1: Compilar projecto'
+          build job: 'compile'
+      }
+    }
+    stage('Stage 2: Executar testes') {
+      steps {
+          echo 'Stage 2: Executar testes'
+          build job: 'test'
+      }
+    }
+    stage('Stage 3: Preparar release') {
+      steps {
+          echo '3.1 Releasing code to production'
+      }
+    }
+  }
+}
