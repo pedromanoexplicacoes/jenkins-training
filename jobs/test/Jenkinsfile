@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    options {
+            copyArtifactPermission('test')
+    }
+
+    stages {
+        stage('Stage 1: Copy executable from other job') {
+            steps {
+                copyArtifacts(projectName: 'compile')
+            }
+        }
+        stage('Stage 2: Prepare Job') {
+            steps {
+                script{
+                    bat 'move dist\main.exe main.exe'
+                }
+            }
+        }
+        stage('Stage 3: run tests') {
+            steps {
+                bat 'main.exe runtests'
+            }
+        }
+        
+    }
+
+
+    post {
+       
+
+    }
+}
