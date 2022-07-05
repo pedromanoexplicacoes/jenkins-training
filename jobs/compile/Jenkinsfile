@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    options {
-            copyArtifactPermission('test')
-    }
 
     stages {
         stage('Stage 1: Checkout SCM') {
