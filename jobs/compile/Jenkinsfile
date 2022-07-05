@@ -33,7 +33,7 @@ pipeline {
 
     post {
         always{
-            archiveArtifacts artifacts: 'dist\main.exe',
+            archiveArtifacts artifacts: 'dist\\main.exe',
             onlyIfSuccessful: true
         }
 
