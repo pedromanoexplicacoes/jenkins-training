@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Stage 3: Prepare delivery') {
             steps {
-                bat 'python -m zipfile delivery.zip out.txt'
+                bat 'python -m zipfile -c delivery.zip out.txt'
             }
         }
     }
