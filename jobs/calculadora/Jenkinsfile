@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    parameters{
+        string(name: 'num1', defaultValue: '0', description: 'Num 1')
+        string(name: 'num2', defaultValue: '0', description: 'Num 1')
+        choice(name: 'tipo', choices: ['sub','mul','add','div'], description: 'tipo de operacao')
+    }
+    
+    stages {
+        
+        stage('Stage 1: Compile') {
+            steps {
+                bat 'python -m py_compile calculadora.py'
+                bat 'pyinstaller --onefile calculadora.py'
+                bat 'move dist\\main.exe calculadora.exe'
+            }
+        }
+        stage('Stage 2: Execute Calculadora') {
+            steps {
+                bat 'calculadora.exe ' + params.num1 + ' ' + params.num2 + ' ' + params.tipo + ' > out.txt'
+            }
+        }
+        stage('Stage 3: Prepare delivery') {
+            steps {
+                bat 'python -m zipfile delivery.zip out.txt'
+            }
+        }
+    }
+
+
+    post {
+        always{
+            archiveArtifacts artifacts: 'delivery.zip',
+            onlyIfSuccessful: true
+        }
+
+    }
+}
