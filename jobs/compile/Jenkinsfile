@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    options {
+        [
+            copyArtifactPermission('test'),
+        ]
+    }
+
+    stages {
+        stage('Stage 1: Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Stage 2: Install Dependencies') {
+            steps {
+                pip install pyinstaller
+                pip install junit-xml
+            }
+        }
+        stage('Stage 3: Compile') {
+            steps {
+                python -m py_compile main.py
+            }
+        }
+        stage('Stage 4: Create installer') {
+            steps {
+                pyinstaller --onefile main.py
+            }
+        }
+    }
+}
