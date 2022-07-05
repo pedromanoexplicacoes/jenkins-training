@@ -4,7 +4,9 @@ pipeline {
     stage('Stage 1: Compilar projecto') {
       steps {
           echo 'Stage 1: Compilar projecto'
+          echo 'Teste!!!'
           build job: 'compile'
+
       }
     }
     stage('Stage 2: Executar testes') {
