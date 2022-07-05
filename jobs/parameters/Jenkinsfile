@@ -1,15 +1,15 @@
 pipeline {
     agent any
-    options([
-     parameters([
-       stringParam(
-         defaultValue: "Nada Introduzido",
-         description: 'Input String',
-         name: 'inp_str'
-       )
-     ])
-   ])
 
+    options{
+        parameters([
+            stringParam(
+                defaultValue: "Nada Introduzido",
+                description: 'Input String',
+                name: 'inp_str'
+            )
+            ])
+    }
 
     stages {
         stage('Stage 1: Checkout SCM') {
