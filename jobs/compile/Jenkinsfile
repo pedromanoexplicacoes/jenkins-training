@@ -11,9 +11,11 @@ pipeline {
             }
         }
         stage('Stage 2: Install Dependencies') {
-            script {
-                pip install pyinstaller
-                pip install junit-xml
+            steps {
+                script{
+                    pip install pyinstaller
+                    pip install junit-xml
+                }
             }
         }
         /*stage('Stage 3: Compile') {
