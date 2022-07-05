@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    properties([
+     parameters([
+       stringParam(
+         defaultValue: "Nada Introduzido",
+         description: 'Input String',
+         name: 'inp_str'
+       )
+     ])
+   ])
+
+    stages {
+        stage('Stage 1: Checkout SCM') {
+            steps {
+                bat 'echo ' + params.inp_str
+            }
+        }
+        
+    }
+
+}
