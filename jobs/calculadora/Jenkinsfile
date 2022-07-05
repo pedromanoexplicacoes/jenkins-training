@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Stage 2: Execute Calculadora') {
             steps {
-                bat 'calculadora.exe ' + params.num1 + ' ' + params.num2 + ' ' + params.tipo + ' > out.txt'
+                bat 'calculadora.exe ' + params.num1 + ' ' + params.num2 + ' ' + params.tipo + '> out.txt'
             }
         }
         stage('Stage 3: Prepare delivery') {
