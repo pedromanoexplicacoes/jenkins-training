@@ -13,7 +13,7 @@ pipeline {
         stage('Stage 2: Prepare Job') {
             steps {
                 script{
-                    bat 'move dist\main.exe main.exe'
+                    bat 'move dist\\main.exe main.exe'
                 }
             }
         }
