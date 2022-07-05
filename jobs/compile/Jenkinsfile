@@ -13,8 +13,8 @@ pipeline {
         stage('Stage 2: Install Dependencies') {
             steps {
                 script{
-                    'pip' 'install' 'pyinstaller'
-                    'pip' 'install' 'junit-xml'
+                    bat 'pip install pyinstaller'
+                    bat 'pip install junit-xml'
                 }
             }
         }
