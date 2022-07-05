@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Stage 1: Copy executable from other job') {
             steps {
-                copyArtifacts(projectName: 'compile', filter:'dist\\main.exe')
+                copyArtifacts(filter:'dist\\main.exe', fingerprintArtifacts: true, projectName: 'compile', selector: lastWithArtifacts() )
             }
         }
         stage('Stage 2: Prepare Job') {
