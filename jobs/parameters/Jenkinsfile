@@ -3,6 +3,7 @@ pipeline {
 
     parameters{
         string(name: 'inp_str', defaultValue: 'Nada definido', description: 'Descricao')
+        choice(name: 'tipo', choices: ['sub','mul','add','div'], description: 'tipo de operacao')
     }
 
     stages {
