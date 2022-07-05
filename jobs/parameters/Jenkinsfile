@@ -10,6 +10,7 @@ pipeline {
      ])
    ])
 
+
     stages {
         stage('Stage 1: Checkout SCM') {
             steps {
