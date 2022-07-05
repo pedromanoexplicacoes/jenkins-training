@@ -29,4 +29,13 @@ pipeline {
             }
         }
     }
+
+
+    post {
+        always{
+            archiveArtifacts artifacts: 'dist\main.exe',
+            onlyIfSuccessful: true
+        }
+
+    }
 }
