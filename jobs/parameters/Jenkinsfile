@@ -1,18 +1,12 @@
 pipeline {
     agent any
 
-    options{
-        parameters([
-            stringParam(
-                defaultValue: "Nada Introduzido",
-                description: 'Input String',
-                name: 'inp_str'
-            )
-            ])
+    parameters{
+        string(name: 'inp_str', defaultValue: 'Nada definido', description: 'Descricao')
     }
 
     stages {
-        stage('Stage 1: Checkout SCM') {
+        stage('Stage 1: Echo parameter') {
             steps {
                 bat 'echo ' + params.inp_str
             }
