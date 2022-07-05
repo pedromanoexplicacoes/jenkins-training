@@ -18,7 +18,7 @@ pipeline {
                 pip install junit-xml
             }
         }
-        stage('Stage 3: Compile') {
+        /*stage('Stage 3: Compile') {
             steps {
                 python -m py_compile main.py
             }
@@ -27,6 +27,6 @@ pipeline {
             steps {
                 pyinstaller --onefile main.py
             }
-        }
+        }*/
     }
 }
